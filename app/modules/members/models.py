@@ -1,6 +1,6 @@
 import uuid
 
-from sqlalchemy import String, Boolean
+from sqlalchemy import String, Boolean, BigInteger
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.database.base import Base
@@ -9,9 +9,10 @@ from app.database.base import Base
 class Member(Base):
     __tablename__ = "members"
 
-    id: Mapped[uuid.UUID] = mapped_column(
+    id: Mapped[int] = mapped_column(
+        BigInteger,
         primary_key=True,
-        default=uuid.uuid4
+        autoincrement=True
     )
 
     member_number: Mapped[str] = mapped_column(

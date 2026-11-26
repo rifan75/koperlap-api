@@ -92,7 +92,7 @@ koperasi-backend/
 │ ├── email/
 │ ├── whatsapp/
 │ └── storage/
-├── migrations/
+├── alembic/
 │ └── versions/
 ├── tests/
 │ ├── conftest.py
