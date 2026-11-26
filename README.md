@@ -1,8 +1,6 @@
 # Aplikasi Koperasi Pekerja Lepas Indonesia
 Struktur Kode  :
 koperasi-backend/
-📁 Project Structure
-text
 .
 ├── app/
 │   ├── main.py
@@ -111,6 +109,7 @@ text
 ├── docker-compose.yml
 ├── pyproject.toml
 └── README.md
+
 
 
 
