@@ -1,5 +1,3 @@
-import uuid
-
 from pydantic import BaseModel, EmailStr, ConfigDict
 
 
@@ -10,7 +8,7 @@ class MemberCreate(BaseModel):
 
 
 class MemberResponse(BaseModel):
-    id: uuid.UUID
+    id: int
     member_number: str
     full_name: str
     email: EmailStr
