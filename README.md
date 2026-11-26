@@ -1,115 +1,115 @@
 # Aplikasi Koperasi Pekerja Lepas Indonesia
 Struktur Kode  :
+<pre>
 koperasi-backend/
-.
 ├── app/
-│   ├── main.py
-│   ├── config.py
-│   ├── core/
-│   │   ├── __init__.py
-│   │   ├── security.py
-│   │   ├── exceptions.py
-│   │   ├── permissions.py
-│   │   ├── constants.py
-│   │   └── logging.py
-│   ├── database/
-│   │   ├── __init__.py
-│   │   ├── session.py
-│   │   ├── base.py
-│   │   └── dependencies.py
-│   ├── common/
-│   │   ├── __init__.py
-│   │   ├── pagination.py
-│   │   ├── response.py
-│   │   ├── enums.py
-│   │   └── utils.py
-│   ├── modules/
-│   │   ├── auth/
-│   │   │   ├── router.py
-│   │   │   ├── schemas.py
-│   │   │   ├── models.py
-│   │   │   ├── repository.py
-│   │   │   ├── service.py
-│   │   │   └── dependencies.py
-│   │   ├── client/
-│   │   │   ├── router.py
-│   │   │   ├── schemas.py
-│   │   │   ├── models.py
-│   │   │   ├── repository.py
-│   │   │   └── service.py
-│   │   ├── members/
-│   │   │   ├── router.py
-│   │   │   ├── schemas.py
-│   │   │   ├── models.py
-│   │   │   ├── repository.py
-│   │   │   └── service.py
-│   │   ├── admin/
-│   │   │   ├── router.py
-│   │   │   ├── schemas.py
-│   │   │   ├── models.py
-│   │   │   ├── repository.py
-│   │   │   └── service.py
-│   │   ├── savings/
-│   │   │   ├── router.py
-│   │   │   ├── schemas.py
-│   │   │   ├── models.py
-│   │   │   ├── repository.py
-│   │   │   └── service.py
-│   │   ├── loans/
-│   │   │   ├── router.py
-│   │   │   ├── schemas.py
-│   │   │   ├── models.py
-│   │   │   ├── repository.py
-│   │   │   └── service.py
-│   │   ├── transactions/
-│   │   │   ├── router.py
-│   │   │   ├── schemas.py
-│   │   │   ├── models.py
-│   │   │   ├── repository.py
-│   │   │   └── service.py
-│   │   ├── projects/
-│   │   │   ├── router.py
-│   │   │   ├── schemas.py
-│   │   │   ├── models.py
-│   │   │   ├── repository.py
-│   │   │   └── service.py
-│   │   ├── shu/
-│   │   │   ├── router.py
-│   │   │   ├── schemas.py
-│   │   │   ├── models.py
-│   │   │   ├── repository.py
-│   │   │   └── service.py
-│   │   ├── reports/
-│   │   │   ├── router.py
-│   │   │   ├── schemas.py
-│   │   │   └── service.py
-│   │   └── notifications/
-│   │       ├── router.py
-│   │       ├── schemas.py
-│   │       └── service.py
-│   └── integrations/
-│       ├── payment_gateway/
-│       ├── email/
-│       ├── whatsapp/
-│       └── storage/
+│ ├── main.py
+│ ├── config.py
+│ ├── core/
+│ │ ├── __init__.py
+│ │ ├── security.py
+│ │ ├── exceptions.py
+│ │ ├── permissions.py
+│ │ ├── constants.py
+│ │ └── logging.py
+│ ├── database/
+│ │ ├── __init__.py
+│ │ ├── session.py
+│ │ ├── base.py
+│ │ └── dependencies.py
+│ ├── common/
+│ │ ├── __init__.py
+│ │ ├── pagination.py
+│ │ ├── response.py
+│ │ ├── enums.py
+│ │ └── utils.py
+│ ├── modules/
+│ │ ├── auth/
+│ │ │ ├── router.py
+│ │ │ ├── schemas.py
+│ │ │ ├── models.py
+│ │ │ ├── repository.py
+│ │ │ ├── service.py
+│ │ │ └── dependencies.py
+│ │ ├── client/
+│ │ │ ├── router.py
+│ │ │ ├── schemas.py
+│ │ │ ├── models.py
+│ │ │ ├── repository.py
+│ │ │ └── service.py
+│ │ ├── members/
+│ │ │ ├── router.py
+│ │ │ ├── schemas.py
+│ │ │ ├── models.py
+│ │ │ ├── repository.py
+│ │ │ └── service.py
+│ │ ├── admin/
+│ │ │ ├── router.py
+│ │ │ ├── schemas.py
+│ │ │ ├── models.py
+│ │ │ ├── repository.py
+│ │ │ └── service.py
+│ │ ├── savings/
+│ │ │ ├── router.py
+│ │ │ ├── schemas.py
+│ │ │ ├── models.py
+│ │ │ ├── repository.py
+│ │ │ └── service.py
+│ │ ├── loans/
+│ │ │ ├── router.py
+│ │ │ ├── schemas.py
+│ │ │ ├── models.py
+│ │ │ ├── repository.py
+│ │ │ └── service.py
+│ │ ├── transactions/
+│ │ │ ├── router.py
+│ │ │ ├── schemas.py
+│ │ │ ├── models.py
+│ │ │ ├── repository.py
+│ │ │ └── service.py
+│ │ ├── projects/
+│ │ │ ├── router.py
+│ │ │ ├── schemas.py
+│ │ │ ├── models.py
+│ │ │ ├── repository.py
+│ │ │ └── service.py
+│ │ ├── shu/
+│ │ │ ├── router.py
+│ │ │ ├── schemas.py
+│ │ │ ├── models.py
+│ │ │ ├── repository.py
+│ │ │ └── service.py
+│ │ ├── reports/
+│ │ │ ├── router.py
+│ │ │ ├── schemas.py
+│ │ │ └── service.py
+│ │ └── notifications/
+│ │ ├── router.py
+│ │ ├── schemas.py
+│ │ └── service.py
+│ └── integrations/
+│ ├── payment_gateway/
+│ ├── email/
+│ ├── whatsapp/
+│ └── storage/
 ├── migrations/
-│   └── versions/
+│ └── versions/
 ├── tests/
-│   ├── conftest.py
-│   ├── unit/
-│   └── integration/
+│ ├── conftest.py
+│ ├── unit/
+│ └── integration/
 ├── scripts/
-│   ├── seed.py
-│   └── create_admin.py
+│ ├── seed.py
+│ └── create_admin.py
 ├── docker/
-│   └── Dockerfile
+│ └── Dockerfile
 ├── .env.example
 ├── .gitignore
 ├── alembic.ini
 ├── docker-compose.yml
 ├── pyproject.toml
 └── README.md
-
+</pre>
 
 
 
