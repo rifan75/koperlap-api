@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from app.modules.clients.models import Client
 from app.modules.clients.repository import ClientRepository
 from app.modules.clients.schemas import ClientCreate
+from app.core.security import hash_password
 
 
 class ClientService:
@@ -26,6 +27,7 @@ class ClientService:
             client_number=f"CLI-{uuid4().hex[:10].upper()}",
             full_name=payload.full_name,
             email=payload.email,
+            password=hash_password(payload.password),
             phone_number=payload.phone_number
         )
 

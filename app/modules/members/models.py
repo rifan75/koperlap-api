@@ -1,7 +1,7 @@
 import uuid
 
 from sqlalchemy import String, Boolean, BigInteger
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database.base import Base
 
@@ -32,6 +32,11 @@ class Member(Base):
         nullable=False
     )
 
+    password: Mapped[str] = mapped_column(
+            String(255),
+            nullable=False
+    )
+
     phone_number: Mapped[str] = mapped_column(
         String(20),
         nullable=False
@@ -40,4 +45,10 @@ class Member(Base):
     is_active: Mapped[bool] = mapped_column(
         Boolean,
         default=True
+    )
+
+    roles = relationship(
+        "MemberRole",
+        back_populates="member",
+        cascade="all, delete-orphan",
     )

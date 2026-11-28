@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from app.modules.admin.models import Admin
+from app.modules.admins.models import Admin
 
 
 class AdminRepository:

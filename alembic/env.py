@@ -9,9 +9,17 @@ from alembic import context
 from app.database.base import Base
 from app.config import settings
 
-from app.modules.admin.models import Admin
+from app.modules.admins.models import Admin
 from app.modules.clients.models import Client
 from app.modules.members.models import Member
+
+from app.core.auth.models import (AuthSession, RefreshToken)
+
+from app.core.rbac.models.role import Role
+from app.core.rbac.models.permission import Permission
+from app.core.rbac.models.role_permission import RolePermission
+from app.core.rbac.models.principal_role import (MemberRole, ClientRole, AdminRole)
+from app.core.rbac.models.role_permission import RolePermission
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

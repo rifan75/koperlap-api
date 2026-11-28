@@ -1,5 +1,5 @@
 from sqlalchemy import String, Boolean, BigInteger
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database.base import Base
 
@@ -30,6 +30,11 @@ class Admin(Base):
         nullable=False
     )
 
+    password: Mapped[str] = mapped_column(
+        String(255),
+        nullable=False
+    )
+
     phone_number: Mapped[str] = mapped_column(
         String(20),
         nullable=False
@@ -38,4 +43,10 @@ class Admin(Base):
     is_active: Mapped[bool] = mapped_column(
         Boolean,
         default=True
+    )
+
+    roles = relationship(
+        "AdminRole",
+        back_populates="admin",
+        cascade="all, delete-orphan",
     )

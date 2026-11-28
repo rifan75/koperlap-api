@@ -2,9 +2,10 @@ from uuid import uuid4
 
 from sqlalchemy.orm import Session
 
-from app.modules.admin.models import Admin
-from app.modules.admin.repository import AdminRepository
-from app.modules.admin.schemas import AdminCreate
+from app.modules.admins.models import Admin
+from app.modules.admins.repository import AdminRepository
+from app.modules.admins.schemas import AdminCreate
+from app.core.security import hash_password
 
 
 class AdminService:
@@ -26,6 +27,7 @@ class AdminService:
             admin_number=f"ADM-{uuid4().hex[:10].upper()}",
             full_name=payload.full_name,
             email=payload.email,
+            password=hash_password(payload.password),
             phone_number=payload.phone_number
         )
 

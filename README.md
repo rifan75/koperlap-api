@@ -1,115 +1,54 @@
 # Aplikasi Koperasi Pekerja Lepas Indonesia
-Struktur Kode  :
+
+
+Auth PKCE2
+React
+  |
+  | POST /auth/login
+  | email + password + state + challenge 
+  v
+FastAPI
+  |
+  | Verify credentials
+  | Generate authorization code
+  v
+React
+  |
+  | Validate state
+  | POST /auth/authorize
+  | verifier + code
+  v
+FastAPI
+  |
+  | Validate PKCE
+  | Consume code
+  | Resolve RBAC
+  | Issue JWT + refresh token
+  v
+React
+  |
+  | Store access token
+  | Store refresh token
+  | Store user
+  v
+Protected API
+
+For RS256, generate an RSA key pair.
 <pre>
-koperasi-backend/
-├── app/
-│ ├── main.py
-│ ├── config.py
-│ ├── core/
-│ │ ├── __init__.py
-│ │ ├── security.py
-│ │ ├── exceptions.py
-│ │ ├── permissions.py
-│ │ ├── constants.py
-│ │ └── logging.py
-│ ├── database/
-│ │ ├── __init__.py
-│ │ ├── session.py
-│ │ ├── base.py
-│ │ └── dependencies.py
-│ ├── common/
-│ │ ├── __init__.py
-│ │ ├── pagination.py
-│ │ ├── response.py
-│ │ ├── enums.py
-│ │ └── utils.py
-│ ├── modules/
-│ │ ├── auth/
-│ │ │ ├── router.py
-│ │ │ ├── schemas.py
-│ │ │ ├── models.py
-│ │ │ ├── repository.py
-│ │ │ ├── service.py
-│ │ │ └── dependencies.py
-│ │ ├── client/
-│ │ │ ├── router.py
-│ │ │ ├── schemas.py
-│ │ │ ├── models.py
-│ │ │ ├── repository.py
-│ │ │ └── service.py
-│ │ ├── members/
-│ │ │ ├── router.py
-│ │ │ ├── schemas.py
-│ │ │ ├── models.py
-│ │ │ ├── repository.py
-│ │ │ └── service.py
-│ │ ├── admin/
-│ │ │ ├── router.py
-│ │ │ ├── schemas.py
-│ │ │ ├── models.py
-│ │ │ ├── repository.py
-│ │ │ └── service.py
-│ │ ├── savings/
-│ │ │ ├── router.py
-│ │ │ ├── schemas.py
-│ │ │ ├── models.py
-│ │ │ ├── repository.py
-│ │ │ └── service.py
-│ │ ├── loans/
-│ │ │ ├── router.py
-│ │ │ ├── schemas.py
-│ │ │ ├── models.py
-│ │ │ ├── repository.py
-│ │ │ └── service.py
-│ │ ├── transactions/
-│ │ │ ├── router.py
-│ │ │ ├── schemas.py
-│ │ │ ├── models.py
-│ │ │ ├── repository.py
-│ │ │ └── service.py
-│ │ ├── projects/
-│ │ │ ├── router.py
-│ │ │ ├── schemas.py
-│ │ │ ├── models.py
-│ │ │ ├── repository.py
-│ │ │ └── service.py
-│ │ ├── shu/
-│ │ │ ├── router.py
-│ │ │ ├── schemas.py
-│ │ │ ├── models.py
-│ │ │ ├── repository.py
-│ │ │ └── service.py
-│ │ ├── reports/
-│ │ │ ├── router.py
-│ │ │ ├── schemas.py
-│ │ │ └── service.py
-│ │ └── notifications/
-│ │ ├── router.py
-│ │ ├── schemas.py
-│ │ └── service.py
-│ └── integrations/
-│ ├── payment_gateway/
-│ ├── email/
-│ ├── whatsapp/
-│ └── storage/
-├── alembic/
-│ └── versions/
-├── tests/
-│ ├── conftest.py
-│ ├── unit/
-│ └── integration/
-├── scripts/
-│ ├── seed.py
-│ └── create_admin.py
-├── docker/
-│ └── Dockerfile
-├── .env.example
-├── .gitignore
-├── alembic.ini
-├── docker-compose.yml
-├── pyproject.toml
-└── README.md
+mkdir -p secrets
+
+openssl genrsa \
+  -out secrets/jwt-private.pem \
+  4096
+
+openssl rsa \
+  -in secrets/jwt-private.pem \
+  -pubout \
+  -out secrets/jwt-public.pem
 </pre>
+
+chmod 600 secrets/jwt-private.pem
+chmod 644 secrets/jwt-public.pem
 
 
 

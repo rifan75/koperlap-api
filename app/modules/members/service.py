@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from app.modules.members.models import Member
 from app.modules.members.schemas import MemberCreate
 from app.modules.members.repository import MemberRepository
+from app.core.security import hash_password
 
 
 class MemberService:
@@ -26,6 +27,7 @@ class MemberService:
             member_number=f"MBR-{uuid4().hex[:10].upper()}",
             full_name=payload.full_name,
             email=payload.email,
+            password=hash_password(payload.password),
             phone_number=payload.phone_number
         )
 

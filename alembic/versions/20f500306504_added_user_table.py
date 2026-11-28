@@ -1,8 +1,8 @@
 """Added user table
 
-Revision ID: 1a5e4cfb66fe
+Revision ID: 20f500306504
 Revises: 
-Create Date: 2026-11-26 18:29:28.892243
+Create Date: 2026-11-28 11:30:35.239558
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '1a5e4cfb66fe'
+revision: str = '20f500306504'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -26,6 +26,7 @@ def upgrade() -> None:
     sa.Column('admin_number', sa.String(length=30), nullable=False),
     sa.Column('full_name', sa.String(length=150), nullable=False),
     sa.Column('email', sa.String(length=150), nullable=False),
+    sa.Column('password', sa.String(length=255), nullable=False),
     sa.Column('phone_number', sa.String(length=20), nullable=False),
     sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
@@ -37,6 +38,7 @@ def upgrade() -> None:
     sa.Column('client_number', sa.String(length=30), nullable=False),
     sa.Column('full_name', sa.String(length=150), nullable=False),
     sa.Column('email', sa.String(length=150), nullable=False),
+    sa.Column('password', sa.String(length=255), nullable=False),
     sa.Column('phone_number', sa.String(length=20), nullable=False),
     sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
@@ -48,6 +50,7 @@ def upgrade() -> None:
     sa.Column('member_number', sa.String(length=30), nullable=False),
     sa.Column('full_name', sa.String(length=150), nullable=False),
     sa.Column('email', sa.String(length=150), nullable=False),
+    sa.Column('password', sa.String(length=255), nullable=False),
     sa.Column('phone_number', sa.String(length=20), nullable=False),
     sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id'),

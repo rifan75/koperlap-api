@@ -5,6 +5,7 @@ class AdminCreate(BaseModel):
     full_name: str
     email: EmailStr
     phone_number: str
+    password: str
 
 
 class AdminResponse(BaseModel):
